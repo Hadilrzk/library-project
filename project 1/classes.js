@@ -91,8 +91,8 @@ class UI {
             div.innerHTML = `
                 <strong>${book.title}</strong> by ${book.author} (${book.year})<br/>
                 ISBN: ${book.isbn} - <em>${book.available ? "available" :"Borrowed"}</em><br/>
-                <button onclick ="handleBorrow('${book.isbn}')">Borrow</button>
-                <button onclick ="handleDeleteBook('${book.isbn}')">Delete</button>
+                <button onclick ="Borrow('${book.isbn}')">Borrow</button>
+                <button onclick ="DeleteBook('${book.isbn}')">Delete</button>
             `;
             bookList.appendChild(div);
         });
@@ -107,7 +107,7 @@ class UI {
                <td>${user.email}</td>
                <td>${user.id}</td>
                <td>
-                  <button onclick ="handleDeleteUser('${user.id}')">Delete</button>
+                  <button onclick ="DeleteUser('${user.id}')">Delete</button>
                 </td>  
             `;
             tbody.appendChild(tr);
@@ -122,7 +122,7 @@ class UI {
                <td>${entry.book.title}</td>
                <td>${entry.user.name}</td>
                <td>
-                  <button onclick =" handleReturn('${entry.book.isbn}')"> Return</button>
+                  <button onclick =" Return('${entry.book.isbn}')"> Return</button>
                 </td>  
             `;
             tbody.appendChild(tr);
@@ -178,7 +178,7 @@ UI.displayBooks(library);
 UI.displayUsers(library);
 UI.displayBorrowed(library);
 
-function handleDeleteBook(isbn){
+function DeleteBook(isbn){
     library.deleteBook(isbn);
     UI.displayBooks(library);
     UI.displayBorrowed(library);
@@ -186,14 +186,14 @@ function handleDeleteBook(isbn){
 }
 
 
-function handleDeleteUser(id){
+function DeleteUser(id){
     library.deleteUser(id);
     UI.displayUsers(library);
     UI.displayBorrowed(library);
     UI.showMessage("User Deleted");
 }
 
-function handleBorrow(isbn){
+function Borrow(isbn){
     const userId = prompt("Enter User ID to borrow:");
     const succes = library.borrowBook(isbn, userId);
     if(succes){
@@ -207,7 +207,7 @@ function handleBorrow(isbn){
 
 }
 
-function handleReturn(isbn){
+function Return(isbn){
     const succes= library.returnBook(isbn);
     if(succes){
         UI.displayBooks(library);
