@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Reservation System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+         <h1>Library Reservation System</h1>
+    </header>     
+    <div class="container">
+        <section class="card">
+            <h2>Add Book</h2>
+            <form id="bookForm">
+                <input type="text" id="title" placeholder="title of the book" required>
+                <input type="text" id="author" placeholder="author" required>
+                <input type="number" id="year" placeholder="year" required>
+                <input type="text" id="isbn" placeholder="isbn" required>
+                <button type="submit" class="btn">add book</button>
+            </form>
+        </section>
+
+        <!--user form-->
+        <section class="card">
+            <h2>Add User</h2>
+            <form id="userForm">
+                <input type="text" id="username" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="userId" placeholder="ID" required>
+                <button type="submit"  class="btn">add user</button>
+            </form>
+        </section>
+        <!--search-->
+        <section class="card search-section">
+           <h2>Search</h2>
+           <div class="search-container">
+              <input type="text" id="searchInput" placeholder="search by keyword" >
+            </div>  
+        </section>
+        <!--book list-->
+        <section class="card">
+            <h2>Books</h2>
+            <div id="bookList"></div>
+        </section>
+        <!--users table-->
+        <section  style="grid-column: 1 / -1;">
+            <h2>Users</h2>
+            <table >
+                <thead>
+                    <tr>
+                        <th>Name</th><th>Email</th><th>ID</th><th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="userList"></tbody>
+            </table>
+        </section>
+        <!--borrowed table-->
+        <section  style="grid-column: 1 / -1;">
+            <h2>Borrowed Books</h2>
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Book</th><th>Borrowed By</th><th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="borrowList"></tbody>
+            </table>
+        </section>
+    </div>
+    <div id="messageBox" class="message hidden"></div>
+    <script src="classes.js"></script>
+
+</html>

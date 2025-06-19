@@ -1,0 +1,137 @@
+:root {
+    --first-color:#6b4226;
+    --second-color: #e8c7a5;
+    --text-color:#2d2d2d;
+    --bg-color:#f8f4ef;
+    --card-bg:#fff;
+    --btn-color:#8b5e3c;
+    --btn-text:#fff;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin:0;
+    padding:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color:var(--text-color);
+    
+
+}
+header h1 {
+    text-align: center;
+    color:var(--text-color);
+}
+.container {
+    padding: 2rem;
+    display: grid;
+    gap:1.5remrem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+}
+.card {
+    background-color: var(--card-bg);
+    padding:1.2rem;
+    border:1px solid #d7ccc8;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+.card h2 {
+    margin-top: 0;
+    color: var(--first-color);
+    font-size: 1.3rem;
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+    gap:0.7rem;
+}
+input, button{
+    padding:0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border:1px solid #ccc;
+}
+input:focus {
+    border-color: var(--first-color);
+    outline: none;
+}
+button, .btn {
+    background-color: var(--btn-color);
+    color:var(--btn-text);
+    border:none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+button:hover {
+    opacity: 0.9;
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-start;
+}
+#searchInput {
+    width:180px;
+    padding:0.4rem;
+    font-size: 0.9rem;
+}
+#bookList, #userList, #borrowList{
+    padding-top: 1rem;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top:1rem;
+    font-size: 0.9rem;
+}
+th, td {
+    
+    padding:0.5rem;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+th{
+    background-color: var(--second-color);
+    color: var(--text-color);
+}
+tr:hover{
+    background-color: #f4f4f4;
+}
+.list .item {
+    margin-bottom: 1rem;
+    padding:0.5rem;
+    border-left: 4px solid var(--first-color);
+    background: #fff8f0;
+    border-radius: 6px;
+}
+.message{
+    position: fixed;
+    top: 1rem;
+    left:50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color:white;
+    padding:0.7rem 1.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    z-index: 999;
+    transition: opacity o.3s ease;
+}
+.message.hidden{
+    display: none;
+}
+.card.small{
+    grid-column: span 2;
+}
+@media (max-width :600px){
+    .container{
+        grid-template-columns: 1fr;
+    }
+    table, th, td {
+        font-size: 0.9rem;
+    }
+}
